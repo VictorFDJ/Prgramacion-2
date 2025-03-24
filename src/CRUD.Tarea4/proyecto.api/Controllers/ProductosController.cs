@@ -35,5 +35,42 @@ namespace proyecto.api.Controllers
             return Ok(productos);
         }
 
+        [HttpGet]
+        [Route("Buscar por ID")]
+        public async Task<IActionResult> VerProducto(int id)
+        {
+            Producto producto = await _context.Productos.FindAsync(id);
+
+            if (producto == null)
+            {
+                return NotFound();
+            }
+            return Ok(producto);
+        }
+
+        [HttpPut]
+        [Route("editar")]
+        public async Task<IActionResult> ActualizarProducto(int id, Producto producto)
+        {
+            var productoExistente = await _context.Productos.FindAsync(id);
+
+            productoExistente!.Nombre = producto.Nombre;
+            productoExistente.Descripcion = producto.Descripcion;
+            productoExistente.Precio = producto.Precio;
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+        [HttpDelete]
+        [Route("eliminar")]
+        public async Task<IActionResult> EliminarProducto(int id)
+        {
+            var productoBorrado = await _context.Productos.FindAsync(id);
+            _context.Productos.Remove(productoBorrado!);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
     }
 }

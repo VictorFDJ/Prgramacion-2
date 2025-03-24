@@ -27,11 +27,47 @@ namespace proyecto.api.Controllers
         }
         [HttpGet]
         [Route("lista")]
-        public async Task<ActionResult<IEnumerable<Producto>>> ListaClientes()
+        public async Task<ActionResult<IEnumerable<Cliente>>> ListaClientes()
         {
 
             var clientes = await _context.Clientes.ToListAsync();
             return Ok(clientes);
+        }
+
+        [HttpGet]
+        [Route("Buscar por ID")]
+
+        public async Task<IActionResult> VerCliente(int id)
+        {
+            Cliente cliente = await _context.Clientes.FindAsync(id);
+
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+            return Ok(cliente);
+        }
+
+        [HttpPut]
+        [Route("editar")]
+        public async Task<IActionResult> ActualizarCliente(int id, Cliente cliente)
+        {
+            var clientes = await _context.Clientes.FindAsync(id);
+
+            clientes!.Nombre = cliente.Nombre;
+            clientes.Nombre = cliente.Telefono;
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+        [HttpDelete]
+        [Route("eliminar")]
+        public async Task<IActionResult> EliminarCliente(int id)
+        {
+            var ClienteRemove = await _context.Clientes.FindAsync(id);
+            _context.Clientes.Remove(ClienteRemove!);
+            await _context.SaveChangesAsync();
+            return Ok();
         }
     }
 }
