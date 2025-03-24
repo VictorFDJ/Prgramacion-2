@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using proyecto.api.Models;
-
+using CRUD.Persitense;
+using CRUD.Domain.Entidades;
 namespace proyecto.api.Controllers
 {
     [Route("api/[controller]")]

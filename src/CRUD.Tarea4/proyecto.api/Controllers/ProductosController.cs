@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CRUD.Domain.Entidades;
+using CRUD.Persitense;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using proyecto.api.Models;
 
 namespace proyecto.api.Controllers
 {

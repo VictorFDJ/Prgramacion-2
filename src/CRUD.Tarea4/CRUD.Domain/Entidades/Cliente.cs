@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace proyecto.api.Models
+namespace CRUD.Domain.Entidades
 {
     public class Cliente
     {

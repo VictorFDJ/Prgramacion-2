@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CRUD.Domain.Entidades;
+using Microsoft.EntityFrameworkCore;
 
-namespace proyecto.api.Models
+namespace CRUD.Persitense
 {
     public class DataContext : DbContext
     {

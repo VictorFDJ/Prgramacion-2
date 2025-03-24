@@ -15,4 +15,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CRUD.Domain\CRUD.Domain.csproj" />
+    <ProjectReference Include="..\CRUD.Persitense\CRUD.Persitense.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,5 @@
+using CRUD.Persitense;
 using Microsoft.EntityFrameworkCore;
-using proyecto.api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
